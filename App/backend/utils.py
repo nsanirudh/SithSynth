@@ -40,6 +40,7 @@ def generate_leadsheet(temperature, timesig, numOfBars, valence, density, model,
   f_chords, f_durs, f_melody, f_bars = create_static_conditions(allChords, allDurs, allMels)
   # save midi file
   chords_mel_mid(f_chords, f_durs, f_bars, f_melody, timesig, model)
+  return allChords, allDurs, allMels
 
 
 def call_generation(temperature, timesig, numOfBars, TransEncoders, model, nnModel, enc_list):
@@ -171,6 +172,10 @@ def generate_chord_durs_ev_trans(nnModel, enc_list, timesig, temperature, numOfB
       cnt_valid += 1
       dec_inp = [dec_sos_idx]
       dec_out = []
+
+    x = allChords
+    y = allDurs
+    z = allMels
 
   return allChords, allDurs, allMels
 

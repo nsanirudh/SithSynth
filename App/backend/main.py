@@ -57,8 +57,8 @@ async def generate_music(
     f_chords, f_durs, f_melody, f_bars = create_static_conditions(allChords, allDurs, allMels)
     chords_mel_mid(f_chords,f_durs,f_bars,f_melody,timesig,model)
 
-    midi_file = './midi/music.mid'
-    xml_file = './musicxml/sheet.xml'
+    midi_file = 'app/generations/mid/music.mid'
+    xml_file = 'app/generations/xml/sheet.xml'
 
     if not os.path.exists(midi_file) or not os.path.exists(xml_file):
         raise HTTPException(status_code=500, detail="Failed to generate music files")
@@ -68,14 +68,14 @@ async def generate_music(
 
 @app.get("/midi")
 async def get_midi():
-    midi_file = './midi/music.mid'
+    midi_file = 'app/generations/mid/music.mid'
     if not os.path.exists(midi_file):
         raise HTTPException(status_code=404, detail="MIDI file not found")
     return FileResponse(midi_file, media_type='audio/midi', filename="music.mid")
 
 @app.get("/xml")
 async def get_xml():
-    xml_file = './musicxml/sheet.xml'
+    xml_file = 'app/generations/xml/sheet.xml'
     if not os.path.exists(xml_file):
         raise HTTPException(status_code=404, detail="XML file not found")
     return FileResponse(xml_file, media_type='application/xml', filename="sheet.xml")
