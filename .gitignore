@@ -1,0 +1,16 @@
+# Include your project-specific ignores in this file
+# Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
+# Useful .gitignore templates: https://github.com/github/gitignore
+
+.qodo
+.idea
+.vscode
+Backend/forDeploy/midi/
+Backend/seq2seq_test/aux_files/
+Backend/seq2seq_test/generations/
+v0.1.mp4
+App/Backend/aux_files/
+Assets/
+Backend/forDeploy/aux_files
+Backend/forDeploy/__pycache__
+Backend/forDeploy/backend_files/__MACOSX
