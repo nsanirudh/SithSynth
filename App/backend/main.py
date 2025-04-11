@@ -1,9 +1,9 @@
-from fastapi import FastAPI, Query, HTTPException
-from fastapi.responses import FileResponse
-import pickle
-from App.backend.gen_utils import generate_leadsheet
-from App.backend.utils import chords_mel_mid, create_static_conditions
 import os
+import pickle
+from fastapi.responses import FileResponse
+from fastapi import FastAPI, Query, HTTPException
+from app.backend.utils import generate_leadsheet
+from app.backend.utils import chords_mel_mid, create_static_conditions
 
 app = FastAPI()
 

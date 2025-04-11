@@ -4,6 +4,6 @@
 
 * For Backend FastAPI server
 ```
-uvicorn App.backend.main:app --reload
+uvicorn app.backend.main:app --reload
 ```
 
