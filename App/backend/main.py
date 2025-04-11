@@ -1,9 +1,9 @@
-import os
-import pickle
+from fastapi import FastAPI, Query, HTTPException, Body
 from fastapi.responses import FileResponse
-from fastapi import FastAPI, Query, HTTPException
-from app.backend.utils import generate_leadsheet
-from app.backend.utils import chords_mel_mid, create_static_conditions
+import pickle
+from App.backend.gen_utils import generate_leadsheet
+from App.backend.utils import chords_mel_mid, create_static_conditions
+import os
 
 app = FastAPI()
 
@@ -11,15 +11,15 @@ app = FastAPI()
 async def root():
     return {"message": "Hello World"}
 
-@app.get("/generate")
+@app.post("/generate")
 async def generate_music(
-    temp: float = Query(..., title="Temperature"),
-    timsig_n: int = Query(..., title="Time Signature Numerator"),
-    timsig_d: int = Query(..., title="Time Signature Denominator"),
-    num_bars: int = Query(..., title="Number of Bars"),
-    val: str = Query(..., title="Valence"),
-    den: str = Query(..., title="Density"),
-    modl: str = Query(..., title="Model (transformer or lstm)")
+    temp: float = Body(..., title="Temperature"),
+    timsig_n: int = Body(..., title="Time Signature Numerator"),
+    timsig_d: int = Body(..., title="Time Signature Denominator"),
+    num_bars: int = Body(..., title="Number of Bars"),
+    val: str = Body(..., title="Valence"),
+    den: str = Body(..., title="Density"),
+    modl: str = Body(..., title="Model (transformer or lstm)")
 ):
     # Load global variables and dictionaries
     encoders_trans = './aux_files/chords_encoders_all.pickle'

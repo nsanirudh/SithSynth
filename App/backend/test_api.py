@@ -1,10 +1,11 @@
 import requests
+import json
 
 BASE_URL = "http://localhost:8000"
 
 def test_generate_endpoint():
     url = f"{BASE_URL}/generate"
-    params = {
+    payload = {
         "temp": 0.7,
         "timsig_n": 4,
         "timsig_d": 4,
@@ -13,7 +14,7 @@ def test_generate_endpoint():
         "den": "med",
         "modl": "transformer"
     }
-    response = requests.get(url, params=params)
+    response = requests.post(url, json=payload)
     assert response.status_code == 200
     data = response.json()
     assert "midi_file" in data
