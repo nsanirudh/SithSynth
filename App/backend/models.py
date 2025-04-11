@@ -1,8 +1,7 @@
+import numpy as np
 import tensorflow as tf
 
 tf.compat.v1.disable_eager_execution()
-import numpy as np
-
 
 class Encoder(tf.keras.layers.Layer):
   def __init__(self, input_vocab_size, num_layers=4, d_model=512, num_heads=8, dff=2048,

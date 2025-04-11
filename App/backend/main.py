@@ -1,9 +1,8 @@
-from fastapi import FastAPI, Query, HTTPException, Body
-from fastapi.responses import FileResponse
-import pickle
-from App.backend.gen_utils import generate_leadsheet
-from App.backend.utils import chords_mel_mid, create_static_conditions
 import os
+import pickle
+from fastapi.responses import FileResponse
+from fastapi import FastAPI, HTTPException, Body
+from app.backend.utils import chords_mel_mid, create_static_conditions, generate_leadsheet
 
 app = FastAPI()
 
@@ -22,15 +21,15 @@ async def generate_music(
     modl: str = Body(..., title="Model (transformer or lstm)")
 ):
     # Load global variables and dictionaries
-    encoders_trans = './aux_files/chords_encoders_all.pickle'
+    encoders_trans = 'app/aux_files/chords_encoders_all.pickle'
     with open(encoders_trans, 'rb') as handle:
         TransEncoders = pickle.load(handle)
 
-    val_temp_path = './aux_files/Valence_Templates.pickle'
+    val_temp_path = 'app/aux_files/Valence_Templates.pickle'
     with open(val_temp_path, 'rb') as handle:
         val_templates = pickle.load(handle)
 
-    dense_temp_path = './aux_files/Density_Templates.pickle'
+    dense_temp_path = 'app/aux_files/Density_Templates.pickle'
     with open(dense_temp_path, 'rb') as handle:
         dense_templates = pickle.load(handle)
 

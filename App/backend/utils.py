@@ -6,6 +6,7 @@ import tensorflow as tf
 from copy import deepcopy
 from fractions import Fraction
 from random import choice,randint
+from app.backend.models import Encoder, Decoder
 
 #tf.compat.v1.disable_eager_execution()
 
@@ -27,7 +28,7 @@ def generate_leadsheet(temperature, timesig, numOfBars, valence, density, model,
     nnModel = chord_trans_ev_model(enc_vocab, dec_vocab)
   else:  # Lstm
     # load model weights and create inference
-    model_seq = tf.keras.models.load_model('Backend/forDeploy//aux_files/ChordDurMel_LSTM.h5')
+    model_seq = tf.keras.models.load_model('app/aux_files/ChordDurMel_LSTM.h5')
     nnModel = chords_inf_model_ev(model_seq, LSTM_dim)  # 2 Models
 
   '''3. Generate the Lead Sheet'''
@@ -297,7 +298,7 @@ def chord_trans_ev_model(enc_vocab, dec_vocab):
   model = tf.keras.models.Model(inputs=[enc_input, dec_input], outputs=out)
 
   # load the weights
-  model.load_weights('Backend/forDeploy/aux_files/ChordDurMel_Trans_w.h5')
+  model.load_weights('app/aux_files/ChordDurMel_Trans_w.h5')
 
   return model
 
@@ -459,8 +460,8 @@ def string_durs_to_float(bar_durs):
 
 def chords_mel_mid(f_chords, f_durs, f_bars, allMelody, timesig, prefix):
   # path for generations
-  midi_out = 'Backend/forDeploy/midi/'
-  xml_out = 'Backend/forDeploy/musicxml/'
+  midi_out = 'app/generations/mid/'
+  xml_out = 'app/generations/xml/'
 
   # create the m21 instance for MIDI
   rc = m21.stream.Stream()

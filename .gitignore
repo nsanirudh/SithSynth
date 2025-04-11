@@ -15,3 +15,4 @@ Backend/forDeploy/aux_files
 Backend/forDeploy/__pycache__
 Backend/forDeploy/backend_files/__MACOSX
 App/Backend/__pycache__
+app/aux_files/
