@@ -5,6 +5,15 @@ from fastapi import FastAPI, HTTPException, Body
 from app.backend.utils import chords_mel_mid, create_static_conditions, generate_leadsheet
 
 app = FastAPI()
+# Enable CORS so preflight OPTIONS are handled
+from fastapi.middleware.cors import CORSMiddleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/")
 async def root():
