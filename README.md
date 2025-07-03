@@ -18,6 +18,7 @@ python run.py
 
 To run the frontend server in dev mode:
 ```commandline
+cd svelte-ui
 npm run dev
 ```
 
