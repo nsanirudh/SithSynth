@@ -1,0 +1,85 @@
+:root {
+  font-family: 'Roboto Mono', monospace;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: #e2eeff;
+  background-color: #0a0a1f;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #e2eeff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #b8d4ff;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #0a0a1f 0%, #1a1a4f 100%);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 12px;
+  border: 1px solid rgba(226, 238, 255, 0.3);
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: rgba(226, 238, 255, 0.1);
+  color: #e2eeff;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+}
+
+button:hover {
+  background-color: rgba(226, 238, 255, 0.2);
+  border-color: rgba(226, 238, 255, 0.5);
+  box-shadow: 0 4px 20px rgba(226, 238, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+button:focus,
+button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(226, 238, 255, 0.3), 0 4px 20px rgba(226, 238, 255, 0.2);
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #0a0a1f;
+    background-color: #ffffff;
+  }
+  button {
+    background-color: rgba(10, 10, 31, 0.05);
+  }
+  button:hover {
+    background-color: rgba(10, 10, 31, 0.1);
+  }
+}
+</style>
