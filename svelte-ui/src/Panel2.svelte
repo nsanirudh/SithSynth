@@ -60,7 +60,8 @@
     width: 100%;
     height: 100%;
     padding: 1rem;
-    overflow-y: auto;
+    /* allow both vertical and horizontal scrolling of sheet music */
+    overflow: auto;
     -webkit-overflow-scrolling: touch;
   }
 
@@ -72,7 +73,9 @@
     border-radius: 8px;
     box-shadow: 0 0 20px rgba(226, 238, 255, 0.2);
     backdrop-filter: blur(10px);
-    padding: 1rem;
+    /* remove inner padding so sheet SVG fills container fully */
+    /* padding: 1rem; */
+    box-sizing: border-box;
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -103,7 +106,8 @@
     }
 
     .osmd {
-      padding: 0.5rem;
+      /* padding removed for seamless fit */
+      /* padding: 0.5rem; */
     }
   }
 </style>
