@@ -1,0 +1,42 @@
+## Python artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+env/
+venv/
+.env
+
+## FastAPI generated files
+app/generations/
+
+## Node & Svelte build artifacts
+node_modules/
+svelte-ui/node_modules/
+svelte-ui/dist/
+svelte-ui/.env
+build/
+*.log
+
+## IDE & OS files
+.DS_Store
+.idea/
+*.iml
+
+## Misc
+to-delete/
+
+../.qodo
+.idea
+.vscode
+Backend/forDeploy/midi/
+Backend/seq2seq_test/aux_files/
+Backend/seq2seq_test/generations/
+v0.1.mp4
+Assets/
+Backend/forDeploy/aux_files
+Backend/forDeploy/__pycache__
+Backend/forDeploy/backend_files/__MACOSX
+app/Backend/__pycache__
+app/backend/__pycache__/
+app/aux_files/
